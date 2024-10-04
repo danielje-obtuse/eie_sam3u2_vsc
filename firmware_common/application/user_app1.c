@@ -92,6 +92,7 @@ Promises:
 */
 void UserApp1Initialize(void)
 {
+  HEARTBEAT_OFF();
   /* If good initialization, set state to Idle */
   if( 1 )
   {
@@ -140,7 +141,8 @@ State Machine Function Definitions
 /* What does this state do? */
 static void UserApp1SM_Idle(void)
 {
-    
+ u16 counter = U16_COUNTER_PERIOD_MS;
+
 } /* end UserApp1SM_Idle() */
      
 
