@@ -141,10 +141,10 @@ State Machine Function Definitions
 static void UserApp1SM_Idle(void)
 {
  static u16 u16_heartbeat_counter = U16_COUNTER_PERIOD_MS;
- int turn_light = 0;
+ static int turn_light = 0;
 
- u16_heartbeat_counter--;
- if (u16_heartbeat_counter == 0);{ 
+ u16_heartbeat_counter -= 1;
+ if (u16_heartbeat_counter == 0) { 
   u16_heartbeat_counter = U16_COUNTER_PERIOD_MS;
   if (turn_light == 0){
     HEARTBEAT_OFF();
