@@ -46,7 +46,6 @@ All Global variable names shall start with "G_<type>UserApp1"
 /* New variables */
 volatile u32 G_u32UserApp1Flags;                          /*!< @brief Global state flags */
 
-
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* Existing variables (defined in other files -- should all contain the "extern" keyword) */
 extern volatile u32 G_u32SystemTime1ms;                   /*!< @brief From main.c */
@@ -141,7 +140,22 @@ State Machine Function Definitions
 /* What does this state do? */
 static void UserApp1SM_Idle(void)
 {
- u16 counter = U16_COUNTER_PERIOD_MS;
+ static u16 u16_heartbeat_counter = U16_COUNTER_PERIOD_MS;
+ int turn_light = 0;
+
+ u16_heartbeat_counter--;
+ if (u16_heartbeat_counter == 0);{ 
+  u16_heartbeat_counter = U16_COUNTER_PERIOD_MS;
+  if (turn_light == 0){
+    HEARTBEAT_OFF();
+    turn_light = 1;
+  }
+  else{
+    HEARTBEAT_ON();
+    turn_light = 0;
+  }
+
+ }
 
 } /* end UserApp1SM_Idle() */
      

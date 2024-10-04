@@ -53,7 +53,7 @@ Promises:
 int main(void)
 {
   G_u32SystemFlags |= _SYSTEM_INITIALIZING;
-
+  HEARTBEAT_OFF();
   /* Low level initialization */
   WatchDogSetup(); 
   ClockSetup();
