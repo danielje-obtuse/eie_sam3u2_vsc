@@ -177,7 +177,7 @@ if (u16BlinkCount == 250){
   u16BlinkCount = 0;
   u8Counter++;
 
-  if (u8Counter == 32){
+  if (u8Counter == 256){
     u8Counter = 0;
     u8ColorIndex++;
   }
@@ -211,6 +211,24 @@ if (u16BlinkCount == 250){
   
   else
     LedOff(CYAN);
+
+  if (u8Counter & 0x20)
+    LedOn(BLUE);
+  
+  else
+    LedOff(BLUE);
+
+  if (u8Counter & 0x40)
+    LedOn(PURPLE);
+  
+  else
+    LedOff(PURPLE);
+
+  if (u8Counter & 0x80)
+    LedOn(WHITE);
+  
+  else
+    LedOff(WHITE);
   
   if (u8ColorIndex == 7)
     u8ColorIndex = 0;
