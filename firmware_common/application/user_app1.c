@@ -95,9 +95,9 @@ Promises:
 */
 void UserApp1Initialize(void)
 {
-  LcdCommand(LCD_DISPLAY_CMD | LCD_DISPLAY_CURSOR);
-  LcdClearChars(0x00, 30);
-  LcdMessage(0x00, "Hello World");
+  u8 u8Message = "Hellow World";
+  LcdClearChars(LINE1_START_ADDR, 30);
+  LcdMessage(LINE1_START_ADDR, u8Message);
   /* If good initialization, set state to Idle */
   if( 1 )
   {
